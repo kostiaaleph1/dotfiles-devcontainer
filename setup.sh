@@ -62,7 +62,7 @@ NVIM_DATA_DIR=/root/.local/share/nvim
 mkdir -p $ROOT_CONFIG_DIR
 mkdir -p $NVIM_DATA_DIR
 
-git clone https://github.com/kostiaLelikov1/nvim $ROOT_CONFIG_DIR
+git clone https://github.com/kostiaLelikov1/nvim ${ROOT_CONFIG_DIR}
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
