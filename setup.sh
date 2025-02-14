@@ -15,11 +15,6 @@ install_debian_dependencies() {
   rm -rf /var/lib/apt/lists/*
 }
 
-# ******************
-# ** Main section **
-# ******************
-
-
 if [ "$(id -u)" -ne 0 ]; then
     echo -e 'Script must be run as root. Use sudo, su, or add "USER root" to your Dockerfile before running this script.'
     exit 1
@@ -60,3 +55,14 @@ make && make CMAKE_INSTALL_PREFIX=/usr/local/nvim install
 ln -sf /usr/local/nvim/bin/nvim /usr/local/bin/nvim
 
 rm -rf /tmp/neovim-${ADJUSTED_VERSION}
+
+ROOT_CONFIG_DIR=/root/.config
+NVIM_DATA_DIR=/root/.local/share/nvim
+
+mkdir -p $NVIM_DATA_DIR
+
+git clone https://github.com/kostiaLelikov1/nvim $ROOT_CONFIG_DIR
+
+yarn install treesitter-cli --global
+
+apt install fzf
