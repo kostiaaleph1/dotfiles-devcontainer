@@ -25,7 +25,7 @@ sudo apt-get install -y \
 
 # Install latest neovim from source
 echo "Installing Neovim from source..."
-sudo apt install -y nvim
+sudo apt install -y neovim
 
 # Create necessary directories
 echo "Creating Neovim configuration directories..."
