@@ -40,7 +40,6 @@ git clone https://github.com/kostiaLelikov1/nvim.git "$NVIM_CONFIG_DIR"
 
 # Set correct permissions
 sudo chown -R vscode:vscode "$NVIM_CONFIG_DIR"
-sudo chown -R vscode:vscode /home/vscode/.local/share/nvim
 
 # Set up executable links
 sudo ln -sf $(which fdfind) /usr/local/bin/fd
@@ -52,5 +51,4 @@ sudo apt-get install -y gcc make
 echo "Installation complete! You can now start Neovim."
 
 # Set ownership of all created files to vscode user
-sudo chown -R vscode:vscode /home/vscode/.local
 sudo chown -R vscode:vscode /home/vscode/.config
