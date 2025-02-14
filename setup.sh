@@ -15,8 +15,6 @@ sudo apt-get install -y \
     gettext \
     cmake \
     python3-pip \
-    nodejs \
-    npm \
     ripgrep \
     fd-find \
     sqlite3 \
