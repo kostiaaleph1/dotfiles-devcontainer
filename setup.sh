@@ -25,18 +25,14 @@ sudo apt-get install -y \
 
 # Install latest neovim from source
 echo "Installing Neovim from source..."
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-make CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make install
-cd ..
-rm -rf neovim
+sudo apt install -y nvim
 
 # Create necessary directories
 echo "Creating Neovim configuration directories..."
 NVIM_CONFIG_DIR="/home/vscode/.config/nvim"
 mkdir -p "$NVIM_CONFIG_DIR"
+
+export XDG_CONFIG_HOME="$NVIM_CONFIG_DIR"
 
 # Clone your Neovim configuration
 echo "Cloning your Neovim configuration..."
