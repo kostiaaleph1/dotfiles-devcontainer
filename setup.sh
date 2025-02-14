@@ -20,13 +20,13 @@ sudo apt-get install -y \
     sqlite3 \
     libsqlite3-dev \
     lua5.3 \
+    lua5.3-dev \
+    liblua5.3-dev \
     luarocks \
     fzf
 
 # Install latest neovim from source
-echo "Installing Neovim from source..."
 sudo apt install -y neovim
-
 # Create necessary directories
 echo "Creating Neovim configuration directories..."
 NVIM_CONFIG_DIR="/home/vscode/.config/nvim"
@@ -37,11 +37,18 @@ mkdir -p "$NVIM_DATA_DIR"
 
 # Clone your Neovim configuration
 echo "Cloning your Neovim configuration..."
-git clone https://github.com/kostiaLelikov1/nvim.git "$NVIM_CONFIG_DIR"
+git clone https://github.com/kostiaLelikov1/nvim.git /tmp/nvim-config
+
+# Copy configuration files to the correct locations
+cp -r /tmp/nvim-config/* "$NVIM_CONFIG_DIR/"
+rm -rf /tmp/nvim-config
 
 # Set correct permissions
 sudo chown -R vscode:vscode /home/vscode/.local
 sudo chown -R vscode:vscode /home/vscode/.config
+
+# Install Python packages
+pip3 install pynvim
 
 # Set up executable links
 sudo ln -sf $(which fdfind) /usr/local/bin/fd
@@ -50,6 +57,8 @@ sudo ln -sf $(which fdfind) /usr/local/bin/fd
 echo "Installing additional plugin dependencies..."
 sudo apt-get install -y gcc make
 
+# Ensure Lua is properly set up for Neovim
 luarocks install luasocket
 
+# Create a minimal init.lua to verify Lua loading
 echo "Installation complete! You can now start Neovim."
