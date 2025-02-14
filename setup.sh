@@ -26,7 +26,7 @@ sudo apt-get install -y \
     fzf
 
 # Install latest neovim from source
-sudo apt install -y neovim
+sudo yes | snap install nvim --classic
 # Create necessary directories
 echo "Creating Neovim configuration directories..."
 NVIM_CONFIG_DIR="/home/vscode/.config/nvim"
