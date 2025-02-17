@@ -68,3 +68,6 @@ git clone https://github.com/kostiaLelikov1/nvim ${ROOT_CONFIG_DIR}
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
+
+curl -LO https://github.com/BurntSushi/ripgrep/releases/download/14.1.0/ripgrep_14.1.0-1_amd64.deb
+yes | dpkg -i ripgrep_14.1.0-1_amd64.deb
